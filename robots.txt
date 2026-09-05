@@ -1,0 +1,4 @@
+# Preview para aprovacao do cliente. Nao indexar: o site real e
+# https://rafaelrafic.com/ e este endereco nao pode competir com ele.
+User-agent: *
+Disallow: /

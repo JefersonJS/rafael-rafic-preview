@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Rafael Rafic — Agenciamento de influenciadores e creators</title>
+<meta name="description" content="Rafael Rafic agencia influenciadores e creators no Brasil. Casting com 46 perfis em 7 estados, de micro a mega, com alcance por rede e contato direto.">
+<link rel="canonical" href="https://rafaelrafic.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Rafael Rafic">
+<meta property="og:title" content="Rafael Rafic — Agenciamento de influenciadores e creators">
+<meta property="og:description" content="Rafael Rafic agencia influenciadores e creators no Brasil. Casting com 46 perfis em 7 estados, de micro a mega, com alcance por rede e contato direto.">
+<meta property="og:url" content="https://rafaelrafic.com/">
+<meta property="og:image" content="https://rafaelrafic.com/midia/hero-1600.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="midia/hero-1024.webp" type="image/webp">
+<link rel="preload" as="font" type="font/woff2" href="fontes/S6uyw4BMUTPHjx4wXg.woff2" crossorigin>
+<link rel="stylesheet" href="fontes/lato.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#28307e;color:#fff;
+  font-family:Lato,"Segoe UI",system-ui,sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img,picture{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.envelope{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ---- topo ----
+   No celular o menu inteiro na barra ocupava 132px, 16% da tela, e ainda
+   quebrava em duas linhas com o "Faca parte" sozinho embaixo. Vira um painel
+   que abre no botao; a barra fica com 60px. */
+.topo{position:sticky;top:0;z-index:20;background:rgba(40,48,126,.96);
+  backdrop-filter:blur(8px)}
+.topo .envelope{display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-top:8px;padding-bottom:8px}
+.topo img{height:34px;width:auto}
+.marca{display:inline-flex;align-items:center;min-height:44px}
+
+.abrir{display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;padding:0;background:none;border:0;color:#fff;
+  font-size:19px;cursor:pointer}
+.abrir:hover{color:#e88648}
+
+.menu{display:none;position:absolute;left:0;right:0;top:100%;
+  flex-direction:column;background:#28307e;padding:4px 20px 14px;
+  border-bottom:1px solid rgba(255,255,255,.12)}
+.menu.aberto{display:flex}
+/* o padding nao e enfeite: sem ele o link fica com 18px de altura e vira
+   alvo pequeno demais para o dedo (o minimo recomendado e 44px) */
+.menu a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;display:inline-flex;align-items:center;
+  min-height:48px;padding:0 2px}
+.menu a:hover{color:#e88648}
+
+/* precisa ser ".menu a.pilula", nao so ".pilula": a regra ".menu a" acima
+   tem classe + elemento e ganharia no padding, deixando a borda colada no
+   texto. No painel do celular o item ocupa a largura toda, entao vira botao
+   preenchido -- destacado do resto da lista, que e so texto. */
+.menu a.pilula{background:#e88648;color:#28307e;font-weight:700;
+  border:1px solid #e88648;border-radius:10px;padding:0 18px;
+  justify-content:center;margin-top:12px}
+.menu a.pilula:hover{background:#f09a63;border-color:#f09a63}
+
+/* ---- capa ---- */
+.capa{position:relative;overflow:hidden;isolation:isolate}
+.capa picture{position:absolute;inset:0;z-index:-2}
+.capa img{width:100%;height:100%;object-fit:cover}
+.capa::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(40,48,126,.72),rgba(40,48,126,.94))}
+.capa .envelope{padding-top:64px;padding-bottom:64px}
+h1{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;
+  font-size:clamp(30px,7vw,56px);line-height:1.1;margin:0 0 16px;max-width:16ch}
+.chamada{font-size:clamp(15px,2.4vw,19px);color:#d7d9f0;max-width:52ch;margin:0 0 28px}
+.acoes{display:flex;gap:12px;flex-wrap:wrap}
+.botao{display:inline-block;padding:13px 26px;border-radius:999px;
+  text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.botao.cheio{background:#e88648;color:#28307e;font-weight:700}
+.botao.cheio:hover{background:#f09a63}
+.botao.vazio{border:1px solid rgba(255,255,255,.5)}
+.botao.vazio:hover{border-color:#e88648;color:#e88648}
+
+/* ---- secoes ---- */
+section{padding:58px 0}
+.alterna{background:#232a6e}
+h2{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;
+  font-size:clamp(24px,4.4vw,36px);margin:0 0 8px;color:#e88648}
+.subtitulo{margin:0 0 30px;color:#b9bce0;font-size:14px;
+  letter-spacing:.16em;text-transform:uppercase}
+p{margin:0 0 16px}
+
+.citacao{margin:0;padding:0;border-left:3px solid #e88648;padding-left:22px;
+  max-width:62ch}
+.citacao p{font-family:Georgia,"Times New Roman",serif;font-style:italic;
+  font-size:clamp(18px,3vw,26px);line-height:1.45;margin:0 0 12px}
+.citacao cite{font-style:normal;font-size:13px;letter-spacing:.18em;
+  text-transform:uppercase;color:#e88648}
+
+.dupla{display:grid;gap:34px;align-items:center}
+.dupla img{border-radius:14px}
+.dupla p{color:#d7d9f0}
+
+/* ---- numeros do casting ---- */
+.numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:0 0 28px;
+  padding:0;list-style:none}
+.numeros li{background:rgba(255,255,255,.06);border-radius:12px;padding:18px}
+.numeros b{display:block;font-size:clamp(26px,5vw,38px);line-height:1.1;
+  color:#e88648;font-weight:700}
+.numeros span{font-size:13px;color:#b9bce0}
+
+.marcas{background:#fff;border-radius:14px;padding:18px}
+.fonte{font-size:12px;color:#9aa0d4;margin-top:10px}
+
+.destaque{font-family:Georgia,"Times New Roman",serif;font-style:italic;
+  font-size:clamp(20px,4vw,32px);line-height:1.35;max-width:24ch;margin:0 0 8px}
+
+.contato{display:grid;gap:16px}
+.contato a{display:flex;gap:12px;align-items:center;text-decoration:none;
+  background:rgba(255,255,255,.06);border-radius:12px;padding:16px 18px}
+.contato a:hover{background:rgba(255,255,255,.12);color:#e88648}
+.icone{width:22px;height:22px;flex:none;fill:currentColor}
+.contato .icone{color:#e88648}
+.abrir .icone{width:24px;height:24px}
+.contato small{display:block;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:#b9bce0}
+
+footer{border-top:1px solid rgba(255,255,255,.12);padding:26px 0;
+  font-size:12px;color:#9aa0d4}
+footer .envelope{display:flex;justify-content:space-between;gap:10px 20px;
+  flex-wrap:wrap}
+footer a{color:#b9bce0;display:inline-flex;align-items:center;min-height:44px}
+footer a:hover{color:#e88648}
+.redes{display:flex;gap:16px}
+
+/* ---- perguntas frequentes ---- */
+.faq{display:grid;gap:14px}
+.faq details{background:rgba(255,255,255,.06);border-radius:12px;
+  padding:16px 18px}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+  min-height:28px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:#e88648;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:12px 0 0;color:#d7d9f0}
+
+/* ---- telas largas ---- */
+@media(min-width:760px){
+  section{padding:76px 0}
+  .capa .envelope{padding-top:112px;padding-bottom:112px}
+  .dupla{grid-template-columns:1fr 1fr;gap:48px}
+  .dupla.invertida > *:first-child{order:2}
+  .numeros{grid-template-columns:repeat(4,1fr)}
+  .contato{grid-template-columns:1fr 1fr}
+  .abrir{display:none}
+  .menu{display:flex;position:static;flex-direction:row;align-items:center;
+    gap:26px;background:none;border:0;padding:0}
+  .menu a{min-height:44px}
+  .topo .envelope{padding-top:14px;padding-bottom:14px}
+  .topo img{height:42px}
+  /* na barra ele volta a ser contornado: preenchido competiria com o botao
+     principal da capa, que fica logo abaixo */
+  .menu a.pilula{background:none;color:#e88648;font-weight:400;
+    border-radius:999px;margin-top:0}
+  .menu a.pilula:hover{background:#e88648;color:#28307e;
+    border-color:#e88648}
+}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://rafaelrafic.com/#negocio",
+      "name": "Rafael Rafic Agenciamento",
+      "description": "Rafael Rafic agencia influenciadores e creators no Brasil. Casting com 46 perfis em 7 estados, de micro a mega, com alcance por rede e contato direto.",
+      "url": "https://rafaelrafic.com/",
+      "email": "rafic@rafaelrafic.com",
+      "telephone": "+5511974694636",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brasil"
+      },
+      "founder": {
+        "@id": "https://rafaelrafic.com/#rafael"
+      },
+      "sameAs": [
+        "https://www.instagram.com/rafaelrafic/",
+        "https://www.linkedin.com/in/raficramos/"
+      ],
+      "knowsAbout": [
+        "marketing de influência",
+        "agenciamento de creators",
+        "publicidade com influenciadores",
+        "micro influenciadores"
+      ],
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 46,
+        "unitText": "creators agenciados"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://rafaelrafic.com/#rafael",
+      "name": "Rafael Rafic",
+      "jobTitle": "Agente de influenciadores",
+      "description": "Agencia influenciadores e creators há mais de 6 anos, com foco em desenvolver o perfil de micro influenciadores.",
+      "email": "rafic@rafaelrafic.com",
+      "telephone": "+5511974694636",
+      "url": "https://rafaelrafic.com/",
+      "sameAs": [
+        "https://www.instagram.com/rafaelrafic/",
+        "https://www.linkedin.com/in/raficramos/"
+      ],
+      "worksFor": {
+        "@id": "https://rafaelrafic.com/#negocio"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://rafaelrafic.com/#perguntas",
+      "isPartOf": {
+        "@id": "https://rafaelrafic.com/#site"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quantos creators tem o casting de Rafael Rafic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O casting tem 46 creators agenciados, distribuídos em 7 estados brasileiros: 15 macro e mega influenciadores, 25 médios e 6 micros. Somados, são 104 perfis de rede social ativos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Em quais estados estão os creators?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "São Paulo, Rio de Janeiro, Minas Gerais, Paraná, Rio Grande do Sul, Santa Catarina e Bahia. A maior concentração é em São Paulo, com 31 dos 46 creators."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que nichos o casting cobre?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Humor, beleza, moda, dicas, entretenimento, diversidade, família, negócios, casa e decoração, gastronomia, viagens e público adulto. A página do casting permite filtrar por nicho, porte e região."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como contratar um creator para a minha marca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Escreva para rafic@rafaelrafic.com ou chame no WhatsApp 11 97469-4636. Você pode consultar o casting completo antes, com o alcance de cada creator em cada rede e o link direto para os perfis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sou creator. Como faço para ser agenciado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fale pelo mesmo e-mail ou WhatsApp, contando seu nome, suas redes, cidade, nicho e alcance atual. Rafael Rafic agencia influenciadores há mais de 6 anos, com foco em desenvolver o perfil de micro influenciadores."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rafaelrafic.com/#site",
+      "url": "https://rafaelrafic.com/",
+      "name": "Rafael Rafic — Agenciamento de influenciadores",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://rafaelrafic.com/#negocio"
+      },
+      "dateModified": "2026-09-04"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://rafaelrafic.com/casting/#casting",
+      "url": "https://rafaelrafic.com/casting/",
+      "name": "Casting de creators",
+      "description": "Casting de Rafael Rafic com 46 creators em 7 estados.",
+      "isPartOf": {
+        "@id": "https://rafaelrafic.com/#site"
+      },
+      "dateModified": "2026-09-04"
+    }
+  ]
+}</script>
+</head>
+<body>
+
+<header class="topo">
+  <div class="envelope">
+    <a href="#" class="marca" aria-label="Rafael Rafic, página inicial">
+      <img src="midia/logo-320.webp" alt="Rafael Rafic" width="320" height="86">
+    </a>
+    <button class="abrir" type="button" aria-expanded="false"
+            aria-controls="menu-principal" aria-label="Abrir menu">
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="2" rx="1"/><rect x="3" y="11" width="18" height="2" rx="1"/><rect x="3" y="16" width="18" height="2" rx="1"/></svg>
+    </button>
+    <nav class="menu" id="menu-principal" aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="casting.html">Casting</a>
+      <a href="#perguntas">Perguntas</a>
+      <a href="#contato">Contato</a>
+      <a href="#contato" class="pilula">Faça parte</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="capa">
+    <picture><source type="image/webp" srcset="midia/hero-1600.webp 1600w, midia/hero-1024.webp 1024w, midia/hero-640.webp 640w" sizes="(max-width:700px) 100vw, 1600px"><img src="midia/hero-1600.jpg" alt="Grupo de jovens comemorando ao ar livre" width="1600" height="894" loading="eager" decoding="async"></picture>
+    <div class="envelope">
+      <h1>Agenciamento de influenciadores</h1>
+      <p class="chamada">Conecto marcas a creators que falam com o público certo.
+         São 46 perfis em 7 estados, do micro ao mega influenciador,
+         com alcance por rede e contato direto — sem PDF, sem procurar link.</p>
+      <div class="acoes">
+        <a class="botao cheio" href="casting.html">Ver o casting</a>
+        <a class="botao vazio" href="#contato">Falar comigo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alterna">
+    <div class="envelope">
+      <blockquote class="citacao">
+        <p>“Pensar influência é se conectar com o futuro do marketing, e estar
+           aberto a toda essa mudança é trilhar o caminho certo para a sua
+           comunicação.”</p>
+        <cite>Rafael Rafic</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="envelope">
+      <h2>Quem é Rafael Rafic</h2>
+      <p class="subtitulo">Sobre</p>
+      <div class="dupla">
+        <div>
+          <p>Olá, sou Rafael Rafic e já atuo na área de agenciamento de
+             influenciadores e artistas há mais de 6 anos. Meu propósito é
+             desenvolver o perfil de micro influenciadores e, com isso, elevar
+             a sua qualidade no marketing de influência, reverberando em maior
+             engajamento e audiência.</p>
+          <p>Quero estar lado a lado do meu agenciado e parceiro, pensando em
+             soluções inovadoras e criativas nas suas entregas e criando
+             projetos direcionados a empresas que se conectam com seus
+             conteúdos. Abraçando o processo como um todo, do orçamento à
+             entrega das métricas.</p>
+        </div>
+        <picture><source type="image/webp" srcset="midia/rafael-900.webp 900w, midia/rafael-600.webp 600w, midia/rafael-400.webp 400w" sizes="(max-width:700px) 100vw, 900px"><img src="midia/rafael-900.jpg" alt="Rafael Rafic, agente de influenciadores" width="900" height="873" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </section>
+
+  <section id="casting" class="alterna">
+    <div class="envelope">
+      <h2>O casting</h2>
+      <p class="subtitulo">Meu casting</p>
+      <ul class="numeros">
+        <li><b>46</b><span>creators agenciados</span></li>
+        <li><b>7</b><span>estados atendidos</span></li>
+        <li><b>15</b><span>macro e mega influenciadores</span></li>
+        <li><b>104</b><span>perfis de rede social</span></li>
+      </ul>
+      <div class="dupla invertida">
+        <div>
+          <p>A lista completa fica no site, com filtro por porte, nicho e
+             região. Cada creator mostra o alcance em cada rede, e o ícone leva
+             direto ao perfil.</p>
+          <p><a class="botao cheio" href="casting.html">Conferir o casting</a></p>
+        </div>
+        <picture><source type="image/webp" srcset="midia/casting-900.webp 900w, midia/casting-600.webp 600w, midia/casting-400.webp 400w" sizes="(max-width:700px) 100vw, 900px"><img src="midia/casting-900.jpg" alt="Creators do casting de Rafael Rafic" width="900" height="600" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </section>
+
+  <section id="marcas">
+    <div class="envelope">
+      <h2>Já fizeram job conosco</h2>
+      <p class="subtitulo">Marcas parceiras</p>
+      <div class="marcas"><picture><source type="image/webp" srcset="midia/jobs-1200.webp 1200w, midia/jobs-800.webp 800w" sizes="(max-width:700px) 100vw, 1200px"><img src="midia/jobs-1200.jpg" alt="Logos das marcas que já fizeram job com o casting: Kostume, Uber Eats, Gomes da Costa, o Boticário, Faber-Castell, Riachuelo, Truss, Natura, Zé Delivery, Itaú, Dove, Corona e Shein" width="1200" height="225" loading="lazy" decoding="async"></picture></div>
+    </div>
+  </section>
+
+  <section class="alterna">
+    <div class="envelope">
+      <p class="destaque">76% dos internautas são impactados por influenciadores.</p>
+      <p class="fonte">Fonte: Meio &amp; Mensagem</p>
+    </div>
+  </section>
+
+  <section id="perguntas">
+    <div class="envelope">
+      <h2>Perguntas frequentes</h2>
+      <p class="subtitulo">Dúvidas de quem contrata</p>
+      <div class="faq">
+
+        <details open>
+          <summary>Quantos creators tem o casting de Rafael Rafic?</summary>
+          <p>O casting tem 46 creators agenciados, distribuídos em
+             7 estados brasileiros: 15 macro e mega
+             influenciadores, 25 médios e 6 micros. Somados,
+             são 104 perfis de rede social ativos.</p>
+        </details>
+
+        <details>
+          <summary>Em quais estados estão os creators?</summary>
+          <p>São Paulo, Rio de Janeiro, Minas Gerais, Paraná, Rio Grande do
+             Sul, Santa Catarina e Bahia. A maior concentração é em São Paulo,
+             com 31 dos 46 creators.</p>
+        </details>
+
+        <details>
+          <summary>Que nichos o casting cobre?</summary>
+          <p>Humor, beleza, moda, dicas, entretenimento, diversidade, família,
+             negócios, casa e decoração, gastronomia, viagens e público adulto.
+             A página do casting permite filtrar por nicho, porte e região.</p>
+        </details>
+
+        <details>
+          <summary>Como contratar um creator para a minha marca?</summary>
+          <p>Escreva para rafic@rafaelrafic.com ou chame no WhatsApp 11 97469-4636.
+             Você pode consultar o casting completo antes, com o alcance de
+             cada creator em cada rede e o link direto para os perfis.</p>
+        </details>
+
+        <details>
+          <summary>Sou creator. Como faço para ser agenciado?</summary>
+          <p>Fale pelo mesmo e-mail ou WhatsApp, contando seu nome, suas redes,
+             cidade, nicho e alcance atual. Rafael Rafic agencia influenciadores
+             há mais de 6 anos, com foco em desenvolver o perfil de micro
+             influenciadores.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="alterna">
+    <div class="envelope">
+      <h2>Vamos conversar</h2>
+      <p class="subtitulo">Contato</p>
+      <div class="contato">
+        <a href="mailto:rafic@rafaelrafic.com">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" fill="none"
+               stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+            <rect x="2.5" y="5" width="19" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+          <span><small>E-mail</small>rafic@rafaelrafic.com</span>
+        </a>
+        <a href="https://wa.me/+5511974694636">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span><small>WhatsApp</small>11 97469-4636</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="envelope">
+    <span>© Rafael Rafic — Agenciamento de influenciadores</span>
+    <span class="redes">
+      <a href="https://www.instagram.com/rafaelrafic/" rel="me noopener" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/raficramos/" rel="me noopener" target="_blank">LinkedIn</a>
+    </span>
+    <span>Criado por <a href="https://metricastudio.com.br" rel="noopener"
+          target="_blank">metricastudio.com.br</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var botao = document.querySelector('.abrir');
+  var menu  = document.getElementById('menu-principal');
+  if (!botao || !menu) return;
+
+  function fechar(){
+    menu.classList.remove('aberto');
+    botao.setAttribute('aria-expanded','false');
+  }
+
+  botao.addEventListener('click', function(){
+    var aberto = menu.classList.toggle('aberto');
+    botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+  });
+
+  // clicar num item leva para a seção e fecha o painel
+  menu.addEventListener('click', function(e){
+    if (e.target.closest('a')) fechar();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && menu.classList.contains('aberto')) {
+      fechar();
+      botao.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
