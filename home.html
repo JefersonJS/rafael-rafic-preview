@@ -128,13 +128,6 @@ p{margin:0 0 16px}
 .contato small{display:block;font-size:11px;letter-spacing:.18em;
   text-transform:uppercase;color:#b9bce0}
 
-footer{border-top:1px solid rgba(255,255,255,.12);padding:26px 0;
-  font-size:12px;color:#9aa0d4}
-footer .envelope{display:flex;justify-content:space-between;gap:10px 20px;
-  flex-wrap:wrap}
-footer a{color:#b9bce0;display:inline-flex;align-items:center;min-height:44px}
-footer a:hover{color:#e88648}
-.redes{display:flex;gap:16px}
 
 /* ---- perguntas frequentes ---- */
 .faq{display:grid;gap:14px}
@@ -168,6 +161,26 @@ footer a:hover{color:#e88648}
     border-radius:999px;margin-top:0}
   .menu a.pilula:hover{background:#e88648;color:#28307e;
     border-color:#e88648}
+}
+
+.rodape{margin-top:auto;border-top:1px solid rgba(255,255,255,.14);
+  padding:44px 0 0;font-size:14px;color:#b9bce0}
+.rodape .envelope{display:grid;gap:32px}
+.rodape h2{font-family:Georgia,"Times New Roman",serif;font-style:italic;
+  font-weight:400;font-size:21px;color:#fff;margin:0 0 6px}
+.rodape .lema{margin:0;max-width:34ch;color:#9aa0d4;font-size:13px}
+.rodape h3{font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;font-weight:700}
+.rodape ul{list-style:none;margin:0;padding:0}
+.rodape a{color:#b9bce0;text-decoration:none;display:inline-flex;
+  align-items:center;min-height:44px}
+.rodape a:hover{color:#e88648}
+.rodape .barra{margin-top:34px;border-top:1px solid rgba(255,255,255,.1);
+  padding:18px 0 24px;display:flex;justify-content:space-between;
+  gap:8px 20px;flex-wrap:wrap;font-size:12px;color:#8f95c9}
+.rodape .barra a{min-height:auto;color:#8f95c9}
+@media(min-width:760px){
+  .rodape .envelope{grid-template-columns:1.6fr 1fr 1fr;gap:40px}
 }
 </style>
 <script type="application/ld+json">{
@@ -472,17 +485,47 @@ footer a:hover{color:#e88648}
 
 </main>
 
-<footer>
+
+<footer class="rodape">
   <div class="envelope">
-    <span>© Rafael Rafic — Agenciamento de influenciadores</span>
-    <span class="redes">
-      <a href="https://www.instagram.com/rafaelrafic/" rel="me noopener" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/in/raficramos/" rel="me noopener" target="_blank">LinkedIn</a>
-    </span>
-    <span>Criado por <a href="https://metricastudio.com.br" rel="noopener"
-          target="_blank">metricastudio.com.br</a></span>
+
+    <div>
+      <h2>Rafael Rafic</h2>
+      <p class="lema">Agenciamento de influenciadores e creators. Conectando
+         marcas a quem fala com o público certo.</p>
+    </div>
+
+    <nav aria-label="Rodapé">
+      <h3>Navegação</h3>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="casting.html">Casting</a></li>
+        <li><a href="home.html#perguntas">Perguntas frequentes</a></li>
+        <li><a href="home.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h3>Contato</h3>
+      <ul>
+        <li><a href="mailto:rafic@rafaelrafic.com">rafic@rafaelrafic.com</a></li>
+        <li><a href="https://wa.me/+5511974694636" rel="noopener"
+               target="_blank">WhatsApp 11 97469-4636</a></li>
+        <li><a href="https://www.instagram.com/rafaelrafic/" rel="me noopener" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/raficramos/" rel="me noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="envelope">
+    <div class="barra">
+      <span>© 2026 Rafael Rafic. Todos os direitos reservados.</span>
+      <span>Criado por <a href="https://metricastudio.com.br" rel="noopener"
+            target="_blank">metricastudio.com.br</a></span>
+    </div>
   </div>
 </footer>
+
 
 <script>
 (function(){
