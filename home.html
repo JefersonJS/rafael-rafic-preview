@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rafaelrafic.com/">
 <meta property="og:image" content="https://rafaelrafic.com/midia/hero-1600.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="midia/hero-1024.webp" type="image/webp">
+<link rel="preload" as="image" href="midia/hero-967.webp" type="image/webp">
 <link rel="preload" as="font" type="font/woff2" href="fontes/S6uyw4BMUTPHjx4wXg.woff2" crossorigin>
 <link rel="stylesheet" href="fontes/lato.css">
 <style>
@@ -66,12 +66,15 @@ a{color:inherit}
   justify-content:center;margin-top:12px}
 .menu a.pilula:hover{background:#f09a63;border-color:#f09a63}
 
-/* ---- capa ---- */
-.capa{position:relative;overflow:hidden;isolation:isolate}
-.capa picture{position:absolute;inset:0;z-index:-2}
-.capa img{width:100%;height:100%;object-fit:cover}
-.capa::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(40,48,126,.72),rgba(40,48,126,.94))}
+/* ---- faixas com imagem de fundo ----
+   Sao tres: topo, casting e o dado dos 76%%. O cliente pediu essa quebrada,
+   com todo o resto em azul. O veu por cima garante contraste do texto sobre
+   qualquer parte da foto. */
+.faixa{position:relative;overflow:hidden;isolation:isolate}
+.faixa picture{position:absolute;inset:0;z-index:-2}
+.faixa img{width:100%;height:100%;object-fit:cover}
+.faixa::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(40,48,126,.74),rgba(40,48,126,.93))}
 .capa .envelope{padding-top:64px;padding-bottom:64px}
 h1{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;
   font-size:clamp(30px,7vw,56px);line-height:1.1;margin:0 0 16px;max-width:16ch}
@@ -103,6 +106,13 @@ p{margin:0 0 16px}
 .dupla{display:grid;gap:34px;align-items:center}
 .dupla img{border-radius:14px}
 .dupla p{color:#d7d9f0}
+/* "menorzinho", nas palavras dele: menos respiro, texto menor e, no celular,
+   a foto recortada -- empilhada ela ocupava 325px, o maior pedaco da secao */
+#sobre{padding:42px 0}
+#sobre .dupla{gap:26px}
+#sobre p{font-size:15px}
+#sobre img{max-height:210px;object-fit:cover;object-position:center 22%}
+@media(min-width:760px){#sobre img{max-height:400px}}
 
 /* ---- numeros do casting ---- */
 .numeros{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:0 0 28px;
@@ -118,15 +128,28 @@ p{margin:0 0 16px}
 .destaque{font-family:Georgia,"Times New Roman",serif;font-style:italic;
   font-size:clamp(20px,4vw,32px);line-height:1.35;max-width:24ch;margin:0 0 8px}
 
-.contato{display:grid;gap:16px}
-.contato a{display:flex;gap:12px;align-items:center;text-decoration:none;
-  background:rgba(255,255,255,.06);border-radius:12px;padding:16px 18px}
-.contato a:hover{background:rgba(255,255,255,.12);color:#e88648}
 .icone{width:22px;height:22px;flex:none;fill:currentColor}
-.contato .icone{color:#e88648}
 .abrir .icone{width:24px;height:24px}
-.contato small{display:block;font-size:11px;letter-spacing:.18em;
-  text-transform:uppercase;color:#b9bce0}
+
+/* ---- formulario "Faca parte" ---- */
+.formulario{display:grid;gap:18px;max-width:760px}
+.campo{display:flex;flex-direction:column;gap:7px}
+.campo label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:#b9bce0}
+.campo .opcional{text-transform:none;letter-spacing:0;color:#8f95c9}
+.campo input,.campo textarea{font:inherit;font-size:15px;color:#fff;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;padding:13px 14px;min-height:48px}
+.campo textarea{min-height:110px;resize:vertical}
+.campo input::placeholder,.campo textarea::placeholder{color:#7f86bd}
+.campo input:focus,.campo textarea:focus{outline:2px solid #e88648;
+  outline-offset:1px;border-color:transparent}
+.campo input[aria-invalid="true"]{border-color:#ff9a8b}
+.erro{font-size:12px;color:#ff9a8b;min-height:0}
+.formulario button{border:0;cursor:pointer;font:inherit;justify-self:start}
+.recado{margin:0;font-size:14px;padding:14px 16px;border-radius:10px;
+  background:rgba(255,255,255,.08);border-left:3px solid #e88648}
+.recado[hidden]{display:none}
 
 
 /* ---- perguntas frequentes ---- */
@@ -148,7 +171,8 @@ p{margin:0 0 16px}
   .dupla{grid-template-columns:1fr 1fr;gap:48px}
   .dupla.invertida > *:first-child{order:2}
   .numeros{grid-template-columns:repeat(4,1fr)}
-  .contato{grid-template-columns:1fr 1fr}
+  .formulario{grid-template-columns:1fr 1fr}
+  .campo.largo{grid-column:1 / -1}
   .abrir{display:none}
   .menu{display:flex;position:static;flex-direction:row;align-items:center;
     gap:26px;background:none;border:0;padding:0}
@@ -178,7 +202,10 @@ p{margin:0 0 16px}
 .rodape .barra{margin-top:34px;border-top:1px solid rgba(255,255,255,.1);
   padding:18px 0 24px;display:flex;justify-content:space-between;
   gap:8px 20px;flex-wrap:wrap;font-size:12px;color:#8f95c9}
-.rodape .barra a{min-height:auto;color:#8f95c9}
+/* inline-flex com altura: cresce a area de toque sem tirar o
+   link de dentro da frase */
+.rodape .barra a{display:inline-flex;align-items:center;
+  min-height:44px;color:#8f95c9}
 @media(min-width:760px){
   .rodape .envelope{grid-template-columns:1.6fr 1fr 1fr;gap:40px}
 }
@@ -292,7 +319,7 @@ p{margin:0 0 16px}
       "publisher": {
         "@id": "https://rafaelrafic.com/#negocio"
       },
-      "dateModified": "2026-09-04"
+      "dateModified": "2026-09-07"
     },
     {
       "@type": "CollectionPage",
@@ -303,7 +330,7 @@ p{margin:0 0 16px}
       "isPartOf": {
         "@id": "https://rafaelrafic.com/#site"
       },
-      "dateModified": "2026-09-04"
+      "dateModified": "2026-09-07"
     }
   ]
 }</script>
@@ -322,29 +349,31 @@ p{margin:0 0 16px}
     <nav class="menu" id="menu-principal" aria-label="Principal">
       <a href="#sobre">Sobre</a>
       <a href="casting.html">Casting</a>
+      <a href="#marcas">Marcas</a>
       <a href="#perguntas">Perguntas</a>
-      <a href="#contato">Contato</a>
-      <a href="#contato" class="pilula">Faça parte</a>
+      <a href="#faca-parte" class="pilula">Faça parte</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <section class="capa">
-    <picture><source type="image/webp" srcset="midia/hero-1600.webp 1600w, midia/hero-1024.webp 1024w, midia/hero-640.webp 640w" sizes="(max-width:700px) 100vw, 1600px"><img src="midia/hero-1600.jpg" alt="Grupo de jovens comemorando ao ar livre" width="1600" height="894" loading="eager" decoding="async"></picture>
+  <!-- 1. topo, com imagem de fundo -->
+  <section class="capa faixa">
+    <picture><source type="image/webp" srcset="midia/hero-967.webp 967w, midia/hero-640.webp 640w" sizes="100vw"><img src="midia/hero-967.jpg" alt="Grupo de jovens comemorando ao ar livre" width="967" height="540" loading="eager" decoding="async"></picture>
     <div class="envelope">
       <h1>Agenciamento de influenciadores</h1>
       <p class="chamada">Conecto marcas a creators que falam com o público certo.
          São 46 perfis em 7 estados, do micro ao mega influenciador,
          com alcance por rede e contato direto.</p>
       <div class="acoes">
-        <a class="botao cheio" href="casting.html">Ver o casting</a>
-        <a class="botao vazio" href="#contato">Falar comigo</a>
+        <a class="botao cheio" href="#faca-parte">Faça parte</a>
+        <a class="botao vazio" href="casting.html">Ver o casting</a>
       </div>
     </div>
   </section>
 
+  <!-- 2. a frase -->
   <section class="alterna">
     <div class="envelope">
       <blockquote class="citacao">
@@ -356,6 +385,7 @@ p{margin:0 0 16px}
     </div>
   </section>
 
+  <!-- 3. quem e Rafael Rafic (compacto) -->
   <section id="sobre">
     <div class="envelope">
       <h2>Quem é Rafael Rafic</h2>
@@ -365,20 +395,19 @@ p{margin:0 0 16px}
           <p>Olá, sou Rafael Rafic e já atuo na área de agenciamento de
              influenciadores e artistas há mais de 6 anos. Meu propósito é
              desenvolver o perfil de micro influenciadores e, com isso, elevar
-             a sua qualidade no marketing de influência, reverberando em maior
-             engajamento e audiência.</p>
-          <p>Quero estar lado a lado do meu agenciado e parceiro, pensando em
-             soluções inovadoras e criativas nas suas entregas e criando
+             a sua qualidade no marketing de influência.</p>
+          <p>Quero estar lado a lado do meu agenciado e parceiro, criando
              projetos direcionados a empresas que se conectam com seus
-             conteúdos. Abraçando o processo como um todo, do orçamento à
-             entrega das métricas.</p>
+             conteúdos — do orçamento à entrega das métricas.</p>
         </div>
-        <picture><source type="image/webp" srcset="midia/rafael-900.webp 900w, midia/rafael-600.webp 600w, midia/rafael-400.webp 400w" sizes="(max-width:700px) 100vw, 900px"><img src="midia/rafael-900.jpg" alt="Rafael Rafic, agente de influenciadores" width="900" height="873" loading="lazy" decoding="async"></picture>
+        <picture><source type="image/webp" srcset="midia/rafael-900.webp 900w, midia/rafael-600.webp 600w, midia/rafael-400.webp 400w" sizes="(max-width:700px) 100vw, 900px"><img src="midia/rafael-900.jpg" alt="Rafael Rafic, agente de influenciadores" width="900" height="872" loading="lazy" decoding="async"></picture>
       </div>
     </div>
   </section>
 
-  <section id="casting" class="alterna">
+  <!-- 4. casting, com imagem de fundo -->
+  <section id="casting" class="faixa">
+    <picture><source type="image/webp" srcset="midia/casting-1240.webp 1240w, midia/casting-900.webp 900w, midia/casting-600.webp 600w" sizes="100vw"><img src="midia/casting-1240.jpg" alt="Creators do casting de Rafael Rafic" width="1240" height="697" loading="lazy" decoding="async"></picture>
     <div class="envelope">
       <h2>O casting</h2>
       <p class="subtitulo">Meu casting</p>
@@ -388,31 +417,76 @@ p{margin:0 0 16px}
         <li><b>15</b><span>macro e mega influenciadores</span></li>
         <li><b>104</b><span>perfis de rede social</span></li>
       </ul>
-      <div class="dupla invertida">
-        <div>
-          <p><a class="botao cheio" href="casting.html">Conferir o casting</a></p>
-        </div>
-        <picture><source type="image/webp" srcset="midia/casting-900.webp 900w, midia/casting-600.webp 600w, midia/casting-400.webp 400w" sizes="(max-width:700px) 100vw, 900px"><img src="midia/casting-900.jpg" alt="Creators do casting de Rafael Rafic" width="900" height="600" loading="lazy" decoding="async"></picture>
-      </div>
+      <a class="botao cheio" href="casting.html">Conferir o casting</a>
     </div>
   </section>
 
-  <section id="marcas">
+  <!-- 5. marcas -->
+  <section id="marcas" class="alterna">
     <div class="envelope">
-      <h2>Já fizeram job conosco</h2>
+      <h2>Já fizeram campanhas comigo</h2>
       <p class="subtitulo">Marcas parceiras</p>
-      <div class="marcas"><picture><source type="image/webp" srcset="midia/jobs-1200.webp 1200w, midia/jobs-800.webp 800w" sizes="(max-width:700px) 100vw, 1200px"><img src="midia/jobs-1200.jpg" alt="Logos das marcas que já fizeram job com o casting: Kostume, Uber Eats, Gomes da Costa, o Boticário, Faber-Castell, Riachuelo, Truss, Natura, Zé Delivery, Itaú, Dove, Corona e Shein" width="1200" height="225" loading="lazy" decoding="async"></picture></div>
+      <div class="marcas"><picture><source type="image/webp" srcset="midia/jobs-1200.webp 1200w, midia/jobs-800.webp 800w" sizes="(max-width:700px) 100vw, 1200px"><img src="midia/jobs-1200.jpg" alt="Logos das marcas que já fizeram campanha com o casting: Kostume, Uber Eats, Gomes da Costa, o Boticário, Faber-Castell, Riachuelo, Truss, Natura, Zé Delivery, Itaú, Dove, Corona e Shein" width="1200" height="225" loading="lazy" decoding="async"></picture></div>
     </div>
   </section>
 
-  <section class="alterna">
+  <!-- 6. dado de mercado, com imagem de fundo -->
+  <section class="faixa">
+    <picture><source type="image/webp" srcset="midia/ambiente-1024.webp 1024w, midia/ambiente-640.webp 640w" sizes="100vw"><img src="midia/ambiente-1024.jpg" alt="Público jovem em um evento" width="1024" height="540" loading="lazy" decoding="async"></picture>
     <div class="envelope">
       <p class="destaque">76% dos internautas são impactados por influenciadores.</p>
       <p class="fonte">Fonte: Meio &amp; Mensagem</p>
     </div>
   </section>
 
-  <section id="perguntas">
+  <!-- 7. formulario -->
+  <section id="faca-parte">
+    <div class="envelope">
+      <h2>Faça parte do casting</h2>
+      <p class="subtitulo">Para creators</p>
+      <form class="formulario" id="form-faca-parte" novalidate>
+        <div class="campo">
+          <label for="f-nome">Nome</label>
+          <input id="f-nome" name="nome" type="text" required autocomplete="name">
+          <span class="erro" data-erro="f-nome"></span>
+        </div>
+        <div class="campo">
+          <label for="f-whatsapp">WhatsApp</label>
+          <input id="f-whatsapp" name="whatsapp" type="tel" required
+                 autocomplete="tel" placeholder="(11) 99999-9999">
+          <span class="erro" data-erro="f-whatsapp"></span>
+        </div>
+        <div class="campo">
+          <label for="f-instagram">Instagram <span class="opcional">(opcional)</span></label>
+          <input id="f-instagram" name="instagram" type="text"
+                 placeholder="instagram.com/seu-perfil">
+        </div>
+        <div class="campo">
+          <label for="f-tiktok">TikTok <span class="opcional">(opcional)</span></label>
+          <input id="f-tiktok" name="tiktok" type="text"
+                 placeholder="tiktok.com/@seu-perfil">
+        </div>
+        <div class="campo">
+          <label for="f-youtube">YouTube <span class="opcional">(opcional)</span></label>
+          <input id="f-youtube" name="youtube" type="text"
+                 placeholder="youtube.com/@seu-canal">
+        </div>
+        <div class="campo largo">
+          <label for="f-obs">Observações <span class="opcional">(opcional)</span></label>
+          <textarea id="f-obs" name="observacoes" rows="4"
+                    placeholder="Conte o que quiser sobre o seu conteúdo."></textarea>
+        </div>
+        <div class="campo largo">
+          <button class="botao cheio" type="submit">Enviar</button>
+          <p class="recado" id="recado-form" role="status" hidden></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- perguntas frequentes: nao estava na lista do audio, mas e o que
+       sustenta o FAQPage da entrega 09 -->
+  <section id="perguntas" class="alterna">
     <div class="envelope">
       <h2>Perguntas frequentes</h2>
       <p class="subtitulo">Dúvidas de quem contrata</p>
@@ -459,27 +533,6 @@ p{margin:0 0 16px}
     </div>
   </section>
 
-  <section id="contato" class="alterna">
-    <div class="envelope">
-      <h2>Vamos conversar</h2>
-      <p class="subtitulo">Contato</p>
-      <div class="contato">
-        <a href="mailto:rafic@rafaelrafic.com">
-          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" fill="none"
-               stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
-            <rect x="2.5" y="5" width="19" height="14" rx="2"/>
-            <path d="M3 7l9 6 9-6"/>
-          </svg>
-          <span><small>E-mail</small>rafic@rafaelrafic.com</span>
-        </a>
-        <a href="https://wa.me/+5511974694636">
-          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          <span><small>WhatsApp</small>11 97469-4636</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 
@@ -498,7 +551,7 @@ p{margin:0 0 16px}
         <li><a href="home.html">Início</a></li>
         <li><a href="casting.html">Casting</a></li>
         <li><a href="home.html#perguntas">Perguntas frequentes</a></li>
-        <li><a href="home.html#contato">Contato</a></li>
+        <li><a href="home.html#faca-parte">Faça parte</a></li>
       </ul>
     </nav>
 
@@ -550,6 +603,53 @@ p{margin:0 0 16px}
       fechar();
       botao.focus();
     }
+  });
+})();
+
+// formulario "Faca parte"
+(function(){
+  var form = document.getElementById('form-faca-parte');
+  if (!form) return;
+  var recado = document.getElementById('recado-form');
+
+  function erroDe(campo){
+    return form.querySelector('[data-erro="' + campo.id + '"]');
+  }
+
+  function validar(campo){
+    var vazio = !campo.value.trim();
+    var alvo = erroDe(campo);
+    campo.setAttribute('aria-invalid', vazio ? 'true' : 'false');
+    if (alvo) alvo.textContent = vazio ? 'Preencha este campo.' : '';
+    return !vazio;
+  }
+
+  form.querySelectorAll('[required]').forEach(function(campo){
+    campo.addEventListener('blur', function(){ validar(campo); });
+    campo.addEventListener('input', function(){
+      if (campo.getAttribute('aria-invalid') === 'true') validar(campo);
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var obrigatorios = [].slice.call(form.querySelectorAll('[required]'));
+    var ok = obrigatorios.map(validar).every(Boolean);
+    if (!ok) {
+      recado.hidden = true;
+      var primeiro = obrigatorios.find(function(c){
+        return c.getAttribute('aria-invalid') === 'true';
+      });
+      if (primeiro) primeiro.focus();
+      return;
+    }
+    // Sem servidor aqui: dizer "enviado" seria mentira. O envio por e-mail
+    // entra no WordPress (entrega 06).
+    recado.textContent = 'Formulário preenchido corretamente. No site '
+      + 'publicado, esta mensagem chega direto no e-mail do Rafael — '
+      + 'aqui na prévia o envio está desligado.';
+    recado.hidden = false;
+    recado.scrollIntoView({block: 'nearest'});
   });
 })();
 </script>

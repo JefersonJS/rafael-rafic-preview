@@ -192,7 +192,10 @@ dialog.ficha.fechando::backdrop{animation:ficha-fundo-sai .14s ease-in forwards}
 .rodape .barra{margin-top:34px;border-top:1px solid rgba(255,255,255,.1);
   padding:18px 0 24px;display:flex;justify-content:space-between;
   gap:8px 20px;flex-wrap:wrap;font-size:12px;color:#8f95c9}
-.rodape .barra a{min-height:auto;color:#8f95c9}
+/* inline-flex com altura: cresce a area de toque sem tirar o
+   link de dentro da frase */
+.rodape .barra a{display:inline-flex;align-items:center;
+  min-height:44px;color:#8f95c9}
 @media(min-width:760px){
   .rodape .envelope{grid-template-columns:1.6fr 1fr 1fr;gap:40px}
 }
@@ -214,8 +217,7 @@ dialog.ficha.fechando::backdrop{animation:ficha-fundo-sai .14s ease-in forwards}
       <a href="home.html">Home</a>
       <a href="#" class="ativo" aria-current="page">Casting</a>
       <a href="home.html#perguntas">Perguntas</a>
-      <a href="home.html#contato">Contato</a>
-      <a href="home.html#contato" class="botao">Faça parte</a>
+      <a href="home.html#faca-parte" class="botao">Faça parte</a>
     </nav>
   </header>
 
@@ -260,7 +262,7 @@ dialog.ficha.fechando::backdrop{animation:ficha-fundo-sai .14s ease-in forwards}
         <li><a href="home.html">Início</a></li>
         <li><a href="casting.html">Casting</a></li>
         <li><a href="home.html#perguntas">Perguntas frequentes</a></li>
-        <li><a href="home.html#contato">Contato</a></li>
+        <li><a href="home.html#faca-parte">Faça parte</a></li>
       </ul>
     </nav>
 
