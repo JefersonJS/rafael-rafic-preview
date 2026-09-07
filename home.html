@@ -146,6 +146,11 @@ p{margin:0 0 16px}
 
 /* ---- formulario "Faca parte" ---- */
 .formulario{display:grid;gap:18px;max-width:760px}
+/* Nome, WhatsApp e E-mail na mesma linha; empilham no celular */
+.trio{display:grid;gap:18px}
+@media(min-width:760px){
+  .trio{grid-column:1 / -1;grid-template-columns:repeat(3,1fr)}
+}
 .campo{display:flex;flex-direction:column;gap:7px}
 .campo label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   color:#b9bce0}
@@ -490,16 +495,23 @@ p{margin:0 0 16px}
       <h2>Faça parte do meu casting</h2>
       <p class="subtitulo">Para creators</p>
       <form class="formulario" id="form-faca-parte" novalidate>
-        <div class="campo">
-          <label for="f-nome">Nome</label>
-          <input id="f-nome" name="nome" type="text" required autocomplete="name">
-          <span class="erro" data-erro="f-nome"></span>
-        </div>
-        <div class="campo">
-          <label for="f-contato">Contato</label>
-          <input id="f-contato" name="contato" type="text" required
-                 autocomplete="tel" placeholder="WhatsApp ou e-mail">
-          <span class="erro" data-erro="f-contato"></span>
+        <div class="trio">
+          <div class="campo">
+            <label for="f-nome">Nome</label>
+            <input id="f-nome" name="nome" type="text" required autocomplete="name">
+            <span class="erro" data-erro="f-nome"></span>
+          </div>
+          <div class="campo">
+            <label for="f-whatsapp">WhatsApp</label>
+            <input id="f-whatsapp" name="whatsapp" type="tel" required
+                   autocomplete="tel" placeholder="(11) 99999-9999">
+            <span class="erro" data-erro="f-whatsapp"></span>
+          </div>
+          <div class="campo">
+            <label for="f-email">E-mail <span class="opcional">(opcional)</span></label>
+            <input id="f-email" name="email" type="email"
+                   autocomplete="email" placeholder="voce@email.com">
+          </div>
         </div>
 
         <fieldset class="campo largo redes-campo">
