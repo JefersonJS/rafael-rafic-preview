@@ -125,21 +125,34 @@ p{margin:0 0 16px}
 .dupla{display:grid;gap:34px;align-items:center}
 .dupla img{border-radius:14px}
 .dupla p{color:#d7d9f0}
-/* "diminuir essa foto, botar bem pequenininho", e no print dele a foto e um
-   circulo com anel laranja -- o mesmo tratamento dos cartoes do casting.
-   A coluna da foto tem a largura do circulo (auto), senao sobra um vazio
-   grande ao lado do texto. */
+/* Referencia do cliente: foto grande, circulo com o anel colorido (o mesmo
+   gradiente dos cartoes do casting) e o circulo cortado pela borda direita
+   da secao. O corte vem de overflow:hidden com margem negativa -- sem o
+   overflow, a margem negativa criaria rolagem horizontal em telas de
+   largura proxima a do envelope. */
 #sobre{padding:42px 0}
 #sobre .dupla{gap:26px}
 #sobre p{font-size:15px}
-#sobre .retrato{width:150px;height:150px;border-radius:50%;padding:3px;
-  background:#e88648;margin:0 auto}
+#sobre .retrato{width:200px;height:200px;border-radius:50%;padding:4px;
+  background:linear-gradient(135deg,#e88648,#d6407f 55%,#7b3fa0);
+  margin:0 auto}
 #sobre .retrato picture{display:block;width:100%;height:100%}
 #sobre .retrato img{width:100%;height:100%;border-radius:50%;
-  object-fit:cover;object-position:center 20%;max-height:none}
+  object-fit:cover;object-position:center 18%;max-height:none}
 @media(min-width:760px){
-  #sobre .dupla{grid-template-columns:1fr auto;gap:44px}
-  #sobre .retrato{width:200px;height:200px;margin:0}
+  #sobre .dupla{grid-template-columns:1fr auto;gap:52px;align-items:center}
+  #sobre .retrato{width:260px;height:260px;margin:0}
+}
+/* Do desktop largo em diante o circulo sai da grade e passa a ser ancorado a
+   borda DIREITA DA SECAO, que ocupa a tela toda. Com margem negativa dentro
+   da grade ele nunca chegava a cortar: o envelope e centralizado, entao a
+   borda dele fica a 80px do fim da tela em 1280px e mais longe ainda em
+   telas maiores. Ancorado assim, o corte acontece em qualquer largura. */
+@media(min-width:1024px){
+  #sobre{position:relative;overflow:hidden;padding:72px 0;min-height:440px}
+  #sobre .dupla{display:block;padding-right:380px}
+  #sobre .retrato{position:absolute;right:-90px;top:50%;
+    transform:translateY(-50%);width:400px;height:400px;padding:5px;margin:0}
 }
 
 /* ---- numeros do casting ---- */
@@ -162,6 +175,33 @@ p{margin:0 0 16px}
 
 .icone{width:22px;height:22px;flex:none;fill:currentColor}
 .abrir .icone{width:24px;height:24px}
+
+/* ---- faixa abobora do formulario ----
+   Cor pedida pelo cliente (#e88648, a mesma do resto do site). Branco sobre
+   ela mede 2,65:1 e reprova, entao todo o conteudo vira azul escuro
+   (4,87:1) e os campos ganham fundo branco. */
+#faca-parte{background:#e88648;color:#232a6e}
+#faca-parte h2,#faca-parte .subtitulo,#faca-parte legend,
+#faca-parte .campo label,#faca-parte .sublabel,#faca-parte .marcador{
+  color:#232a6e}
+#faca-parte .campo .opcional{color:rgba(35,42,110,.72)}
+#faca-parte .campo input,#faca-parte .campo textarea{
+  background:#fff;border-color:rgba(35,42,110,.28);color:#232a6e}
+#faca-parte .campo input::placeholder,
+#faca-parte .campo textarea::placeholder{color:#6b7093}
+#faca-parte .campo input:focus,#faca-parte .campo textarea:focus{
+  outline-color:#232a6e}
+#faca-parte .redes-campo{border-color:rgba(35,42,110,.28)}
+#faca-parte .marcador input{accent-color:#232a6e}
+#faca-parte .botao.cheio{background:#232a6e;color:#fff}
+#faca-parte .botao.cheio:hover{background:#1b2154}
+#faca-parte .botao.vazio{border-color:rgba(35,42,110,.5);
+  color:#232a6e}
+#faca-parte .botao.vazio:hover{background:#232a6e;color:#fff;
+  border-color:#232a6e}
+#faca-parte .recado{background:#fff;border-left-color:#232a6e;
+  color:#232a6e}
+#faca-parte .erro{color:#8c1d18}
 
 /* ---- formulario "Faca parte" ---- */
 .formulario{display:grid;gap:18px;max-width:760px}
@@ -467,7 +507,7 @@ p{margin:0 0 16px}
              projetos direcionados a empresas que se conectam com seus
              conteúdos — do orçamento à entrega das métricas.</p>
         </div>
-        <div class="retrato"><picture><source type="image/webp" srcset="midia/rafael-900.webp 900w, midia/rafael-600.webp 600w, midia/rafael-400.webp 400w" sizes="(max-width:700px) 100vw, 900px"><img src="midia/rafael-900.jpg" alt="Rafael Rafic, agente de influenciadores" width="900" height="872" loading="lazy" decoding="async"></picture></div>
+        <div class="retrato"><picture><source type="image/webp" srcset="midia/rafael-1000.webp 1000w, midia/rafael-700.webp 700w, midia/rafael-460.webp 460w" sizes="(max-width:700px) 100vw, 1000px"><img src="midia/rafael-1000.jpg" alt="Rafael Rafic, agente de influenciadores" width="900" height="872" loading="lazy" decoding="async"></picture></div>
       </div>
     </div>
   </section>
