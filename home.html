@@ -84,7 +84,9 @@ h1{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400
   text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
 .botao.cheio{background:#e88648;color:#28307e;font-weight:700}
 .botao.cheio:hover{background:#f09a63}
-.botao.vazio{border:1px solid rgba(255,255,255,.5)}
+/* background explicito: em <button> o navegador aplica um cinza proprio
+   (#f0f0f0 no Chrome), e o texto branco cairia para 1,14:1 */
+.botao.vazio{border:1px solid rgba(255,255,255,.5);background:transparent}
 .botao.vazio:hover{border-color:#e88648;color:#e88648}
 
 /* ---- secoes ---- */
@@ -149,10 +151,14 @@ p{margin:0 0 16px}
    borda dele fica a 80px do fim da tela em 1280px e mais longe ainda em
    telas maiores. Ancorado assim, o corte acontece em qualquer largura. */
 @media(min-width:1024px){
-  #sobre{position:relative;overflow:hidden;padding:72px 0;min-height:440px}
-  #sobre .dupla{display:block;padding-right:380px}
-  #sobre .retrato{position:absolute;right:-90px;top:50%;
-    transform:translateY(-50%);width:400px;height:400px;padding:5px;margin:0}
+  /* Proporcao da referencia: o circulo quase preenche a altura da faixa e o
+     texto ocupa pouco menos de 60%% da largura. O padding e menor de
+     proposito -- e o circulo que dita a altura da secao. */
+  #sobre{position:relative;overflow:hidden;padding:44px 0;min-height:508px}
+  #sobre .dupla{display:block;padding-right:34%}
+  #sobre .retrato{position:absolute;right:-70px;top:50%;
+    transform:translateY(-50%);width:440px;height:440px;padding:5px;margin:0}
+  #sobre p{font-size:16px}
 }
 
 /* ---- numeros do casting ---- */
@@ -177,38 +183,38 @@ p{margin:0 0 16px}
 .abrir .icone{width:24px;height:24px}
 
 /* ---- faixa abobora do formulario ----
-   Cor pedida pelo cliente (#e88648, a mesma do resto do site). Branco sobre
-   ela mede 2,65:1 e reprova, entao todo o conteudo vira azul escuro
-   (4,87:1) e os campos ganham fundo branco. */
-#faca-parte{background:#e88648;color:#232a6e}
+   Fundo mais torrado que a abobora da marca para sustentar texto branco
+   (4,95:1; sobre a abobora original o branco dava 2,65:1).
+
+   Os campos levam veu PRETO, nao branco: clarear o fundo derrubaria o
+   branco do texto -- medido, veu branco reprova em qualquer nivel, ate a 6%%
+   (4,46:1). Com preto a 12%% o branco sobe para 6,06:1. */
+#faca-parte{background:#b55417;color:#fff}
 #faca-parte h2,#faca-parte .subtitulo,#faca-parte legend,
 #faca-parte .campo label,#faca-parte .sublabel,#faca-parte .marcador{
-  color:#232a6e}
-#faca-parte .campo .opcional{color:rgba(35,42,110,.72)}
-/* campos translucidos, sem branco chapado. O veu de 14%% deixa a abobora
-   aparecer e ainda leva o texto azul a 5,61:1. O placeholder tem cor propria
-   porque azul com alfa reprova em qualquer opacidade abaixo de 100%%:
-   #2f3568 da 4,99:1 e le mais suave que o texto digitado. */
+  color:#fff}
+/* solido: a 90%% dava 4,32:1 e a 78%%, 3,65:1. O corpo menor e o
+   parenteses ja marcam que e secundario, sem precisar de opacidade. */
+#faca-parte .campo .opcional{color:#fff}
 #faca-parte .campo input,#faca-parte .campo textarea{
-  background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.38);
-  color:#232a6e}
+  background:rgba(0,0,0,.12);border-color:rgba(255,255,255,.3);color:#fff}
 #faca-parte .campo input:hover,#faca-parte .campo textarea:hover{
-  background:rgba(255,255,255,.2)}
+  background:rgba(0,0,0,.18)}
+/* 86%% e o piso: a 78%% o placeholder cai para 4,35:1 */
 #faca-parte .campo input::placeholder,
-#faca-parte .campo textarea::placeholder{color:#2f3568}
+#faca-parte .campo textarea::placeholder{color:rgba(255,255,255,.86)}
 #faca-parte .campo input:focus,#faca-parte .campo textarea:focus{
-  outline-color:#232a6e}
-#faca-parte .redes-campo{border-color:rgba(255,255,255,.32)}
-#faca-parte .marcador input{accent-color:#232a6e}
-#faca-parte .botao.cheio{background:#232a6e;color:#fff}
-#faca-parte .botao.cheio:hover{background:#1b2154}
-#faca-parte .botao.vazio{border-color:rgba(35,42,110,.5);
-  color:#232a6e}
-#faca-parte .botao.vazio:hover{background:#232a6e;color:#fff;
-  border-color:#232a6e}
-#faca-parte .recado{background:rgba(255,255,255,.2);
-  border-left-color:#232a6e;color:#232a6e}
-#faca-parte .erro{color:#6b1410}
+  outline-color:#fff}
+#faca-parte .redes-campo{border-color:rgba(255,255,255,.28)}
+#faca-parte .marcador input{accent-color:#fff}
+#faca-parte .botao.cheio{background:#fff;color:#b55417}
+#faca-parte .botao.cheio:hover{background:#ffe9dc}
+#faca-parte .botao.vazio{border-color:rgba(255,255,255,.6);color:#fff}
+#faca-parte .botao.vazio:hover{background:#fff;color:#b55417;
+  border-color:#fff}
+#faca-parte .recado{background:rgba(0,0,0,.16);border-left-color:#fff;
+  color:#fff}
+#faca-parte .erro{color:#ffd9d4}
 
 /* ---- formulario "Faca parte" ---- */
 .formulario{display:grid;gap:18px;max-width:760px}
