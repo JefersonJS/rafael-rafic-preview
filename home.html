@@ -185,13 +185,20 @@ p{margin:0 0 16px}
 #faca-parte .campo label,#faca-parte .sublabel,#faca-parte .marcador{
   color:#232a6e}
 #faca-parte .campo .opcional{color:rgba(35,42,110,.72)}
+/* campos translucidos, sem branco chapado. O veu de 14%% deixa a abobora
+   aparecer e ainda leva o texto azul a 5,61:1. O placeholder tem cor propria
+   porque azul com alfa reprova em qualquer opacidade abaixo de 100%%:
+   #2f3568 da 4,99:1 e le mais suave que o texto digitado. */
 #faca-parte .campo input,#faca-parte .campo textarea{
-  background:#fff;border-color:rgba(35,42,110,.28);color:#232a6e}
+  background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.38);
+  color:#232a6e}
+#faca-parte .campo input:hover,#faca-parte .campo textarea:hover{
+  background:rgba(255,255,255,.2)}
 #faca-parte .campo input::placeholder,
-#faca-parte .campo textarea::placeholder{color:#6b7093}
+#faca-parte .campo textarea::placeholder{color:#2f3568}
 #faca-parte .campo input:focus,#faca-parte .campo textarea:focus{
   outline-color:#232a6e}
-#faca-parte .redes-campo{border-color:rgba(35,42,110,.28)}
+#faca-parte .redes-campo{border-color:rgba(255,255,255,.32)}
 #faca-parte .marcador input{accent-color:#232a6e}
 #faca-parte .botao.cheio{background:#232a6e;color:#fff}
 #faca-parte .botao.cheio:hover{background:#1b2154}
@@ -199,9 +206,9 @@ p{margin:0 0 16px}
   color:#232a6e}
 #faca-parte .botao.vazio:hover{background:#232a6e;color:#fff;
   border-color:#232a6e}
-#faca-parte .recado{background:#fff;border-left-color:#232a6e;
-  color:#232a6e}
-#faca-parte .erro{color:#8c1d18}
+#faca-parte .recado{background:rgba(255,255,255,.2);
+  border-left-color:#232a6e;color:#232a6e}
+#faca-parte .erro{color:#6b1410}
 
 /* ---- formulario "Faca parte" ---- */
 .formulario{display:grid;gap:18px;max-width:760px}
