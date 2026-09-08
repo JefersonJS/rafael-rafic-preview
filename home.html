@@ -89,7 +89,26 @@ h1{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400
 
 /* ---- secoes ---- */
 section{padding:58px 0}
-.alterna{background:#232a6e}
+
+/* As faixas alternadas passaram de azul escuro para cinza claro. Trocar so o
+   fundo deixaria o texto branco invisivel, entao todo o conteudo delas ganha
+   cor escura. Os valores foram escolhidos por contraste medido sobre
+   #f6f6f6: azul da marca 10,7:1 e laranja fechado 4,6:1, ambos acima do
+   minimo 4,5:1. O laranja original dava 2,45:1 e reprovava ate como texto
+   grande. */
+.alterna{background:#f6f6f6;color:#4a4f70}
+.alterna h2{color:#b4551f}
+.alterna .subtitulo{color:#5c6180}
+.alterna p{color:#4a4f70}
+.alterna .citacao{border-left-color:#b4551f}
+.alterna .citacao p{color:#28307e}
+.alterna .citacao cite{color:#b4551f}
+.alterna .fonte{color:#5c6180}
+.alterna .faq details{background:rgba(40,48,126,.05);
+  border:1px solid rgba(40,48,126,.12)}
+.alterna .faq summary{color:#28307e}
+.alterna .faq summary::after{color:#b4551f}
+.alterna .faq p{color:#4a4f70}
 h2{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;
   font-size:clamp(24px,4.4vw,36px);margin:0 0 8px;color:#e88648}
 .subtitulo{margin:0 0 30px;color:#b9bce0;font-size:14px;
@@ -367,7 +386,7 @@ p{margin:0 0 16px}
       "publisher": {
         "@id": "https://rafaelrafic.com/#negocio"
       },
-      "dateModified": "2026-09-07"
+      "dateModified": "2026-09-08"
     },
     {
       "@type": "CollectionPage",
@@ -378,7 +397,7 @@ p{margin:0 0 16px}
       "isPartOf": {
         "@id": "https://rafaelrafic.com/#site"
       },
-      "dateModified": "2026-09-07"
+      "dateModified": "2026-09-08"
     }
   ]
 }</script>
