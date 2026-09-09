@@ -8,6 +8,10 @@
 <title>Rafael Rafic — Agenciamento de influenciadores e creators</title>
 <meta name="description" content="Rafael Rafic agencia influenciadores e creators no Brasil. Casting com 46 perfis em 7 estados, de micro a mega, com alcance por rede e contato direto.">
 <link rel="canonical" href="https://rafaelrafic.com/">
+<link rel="icon" href="midia/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="midia/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="midia/favicon-16.png">
+<link rel="apple-touch-icon" href="midia/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Rafael Rafic">
@@ -143,7 +147,7 @@ p{margin:0 0 16px}
   object-fit:cover;object-position:center 18%;max-height:none}
 @media(min-width:760px){
   #sobre .dupla{grid-template-columns:1fr auto;gap:52px;align-items:center}
-  #sobre .retrato{width:150px;height:150px;margin:0}
+  #sobre .retrato{width:170px;height:170px;margin:0}
 }
 /* Do desktop largo em diante o circulo sai da grade e passa a ser ancorado a
    borda DIREITA DA SECAO, que ocupa a tela toda. Com margem negativa dentro
@@ -151,12 +155,12 @@ p{margin:0 0 16px}
    borda dele fica a 80px do fim da tela em 1280px e mais longe ainda em
    telas maiores. Ancorado assim, o corte acontece em qualquer largura. */
 @media(min-width:1024px){
-  /* A foto acompanha a altura do bloco de paragrafos (144px medidos), como
-     pedido. Nesse tamanho ela volta para dentro da grade: o recorte pela
-     borda direita servia a um circulo grande e nao faz sentido aqui. */
+  /* Partiu da altura do bloco de paragrafos (144px medidos) e subiu para
+     200px a pedido -- "so mais um pouco". Continua dentro da grade: o
+     recorte pela borda direita servia a um circulo grande. */
   #sobre{padding:48px 0}
   #sobre .dupla{grid-template-columns:1fr auto;gap:56px;align-items:center}
-  #sobre .retrato{width:144px;height:144px;padding:3px;margin:0}
+  #sobre .retrato{width:200px;height:200px;padding:4px;margin:0}
   #sobre p{font-size:16px}
 }
 
