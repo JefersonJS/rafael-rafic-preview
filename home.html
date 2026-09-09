@@ -189,30 +189,34 @@ p{margin:0 0 16px}
    Os campos levam veu PRETO, nao branco: clarear o fundo derrubaria o
    branco do texto -- medido, veu branco reprova em qualquer nivel, ate a 6%%
    (4,46:1). Com preto a 12%% o branco sobe para 6,06:1. */
-#faca-parte{background:#b55417;color:#fff}
+#faca-parte{background:#e88648;color:#fff}
 #faca-parte h2,#faca-parte .subtitulo,#faca-parte legend,
 #faca-parte .campo label,#faca-parte .sublabel,#faca-parte .marcador{
   color:#fff}
 /* solido: a 90%% dava 4,32:1 e a 78%%, 3,65:1. O corpo menor e o
    parenteses ja marcam que e secundario, sem precisar de opacidade. */
 #faca-parte .campo .opcional{color:#fff}
+/* veu a 30%%: e o ponto em que o branco dentro do campo alcanca 5,02:1
+   sobre a abobora da marca. A 22%% ficaria em 4,18:1. */
 #faca-parte .campo input,#faca-parte .campo textarea{
-  background:rgba(0,0,0,.12);border-color:rgba(255,255,255,.3);color:#fff}
+  background:rgba(0,0,0,.3);border-color:rgba(255,255,255,.42);color:#fff}
 #faca-parte .campo input:hover,#faca-parte .campo textarea:hover{
-  background:rgba(0,0,0,.18)}
-/* 86%% e o piso: a 78%% o placeholder cai para 4,35:1 */
+  background:rgba(0,0,0,.36)}
+/* solido: com o veu a 30%%, branco a 86%% dava 4,17:1 e solido da 5,02:1 --
+   o placeholder e o unico texto da faixa que ainda alcanca o minimo */
 #faca-parte .campo input::placeholder,
-#faca-parte .campo textarea::placeholder{color:rgba(255,255,255,.86)}
+#faca-parte .campo textarea::placeholder{color:#fff;opacity:1}
 #faca-parte .campo input:focus,#faca-parte .campo textarea:focus{
   outline-color:#fff}
 #faca-parte .redes-campo{border-color:rgba(255,255,255,.28)}
 #faca-parte .marcador input{accent-color:#fff}
-#faca-parte .botao.cheio{background:#fff;color:#b55417}
+/* texto do botao no azul da marca: a abobora sobre branco daria 2,65:1 */
+#faca-parte .botao.cheio{background:#fff;color:#28307e}
 #faca-parte .botao.cheio:hover{background:#ffe9dc}
 #faca-parte .botao.vazio{border-color:rgba(255,255,255,.6);color:#fff}
-#faca-parte .botao.vazio:hover{background:#fff;color:#b55417;
+#faca-parte .botao.vazio:hover{background:#fff;color:#28307e;
   border-color:#fff}
-#faca-parte .recado{background:rgba(0,0,0,.16);border-left-color:#fff;
+#faca-parte .recado{background:rgba(0,0,0,.3);border-left-color:#fff;
   color:#fff}
 #faca-parte .erro{color:#ffd9d4}
 
@@ -439,7 +443,7 @@ p{margin:0 0 16px}
       "publisher": {
         "@id": "https://rafaelrafic.com/#negocio"
       },
-      "dateModified": "2026-09-08"
+      "dateModified": "2026-09-09"
     },
     {
       "@type": "CollectionPage",
@@ -450,7 +454,7 @@ p{margin:0 0 16px}
       "isPartOf": {
         "@id": "https://rafaelrafic.com/#site"
       },
-      "dateModified": "2026-09-08"
+      "dateModified": "2026-09-09"
     }
   ]
 }</script>
