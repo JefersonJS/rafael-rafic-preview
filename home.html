@@ -143,7 +143,7 @@ p{margin:0 0 16px}
   object-fit:cover;object-position:center 18%;max-height:none}
 @media(min-width:760px){
   #sobre .dupla{grid-template-columns:1fr auto;gap:52px;align-items:center}
-  #sobre .retrato{width:260px;height:260px;margin:0}
+  #sobre .retrato{width:150px;height:150px;margin:0}
 }
 /* Do desktop largo em diante o circulo sai da grade e passa a ser ancorado a
    borda DIREITA DA SECAO, que ocupa a tela toda. Com margem negativa dentro
@@ -151,13 +151,12 @@ p{margin:0 0 16px}
    borda dele fica a 80px do fim da tela em 1280px e mais longe ainda em
    telas maiores. Ancorado assim, o corte acontece em qualquer largura. */
 @media(min-width:1024px){
-  /* Proporcao da referencia: o circulo quase preenche a altura da faixa e o
-     texto ocupa pouco menos de 60%% da largura. O padding e menor de
-     proposito -- e o circulo que dita a altura da secao. */
-  #sobre{position:relative;overflow:hidden;padding:44px 0;min-height:508px}
-  #sobre .dupla{display:block;padding-right:34%}
-  #sobre .retrato{position:absolute;right:-70px;top:50%;
-    transform:translateY(-50%);width:440px;height:440px;padding:5px;margin:0}
+  /* A foto acompanha a altura do bloco de paragrafos (144px medidos), como
+     pedido. Nesse tamanho ela volta para dentro da grade: o recorte pela
+     borda direita servia a um circulo grande e nao faz sentido aqui. */
+  #sobre{padding:48px 0}
+  #sobre .dupla{grid-template-columns:1fr auto;gap:56px;align-items:center}
+  #sobre .retrato{width:144px;height:144px;padding:3px;margin:0}
   #sobre p{font-size:16px}
 }
 
@@ -196,18 +195,18 @@ p{margin:0 0 16px}
 /* solido: a 90%% dava 4,32:1 e a 78%%, 3,65:1. O corpo menor e o
    parenteses ja marcam que e secundario, sem precisar de opacidade. */
 #faca-parte .campo .opcional{color:#fff}
-/* veu a 30%%: e o ponto em que o branco dentro do campo alcanca 5,02:1
-   sobre a abobora da marca. A 22%% ficaria em 4,18:1. */
+/* caixas brancas com texto preto: 20,6:1, o maior contraste possivel na
+   faixa. Os rotulos por fora seguem em branco sobre a abobora. */
 #faca-parte .campo input,#faca-parte .campo textarea{
-  background:rgba(0,0,0,.3);border-color:rgba(255,255,255,.42);color:#fff}
+  background:#fff;border-color:rgba(0,0,0,.2);color:#111}
 #faca-parte .campo input:hover,#faca-parte .campo textarea:hover{
-  background:rgba(0,0,0,.36)}
-/* solido: com o veu a 30%%, branco a 86%% dava 4,17:1 e solido da 5,02:1 --
-   o placeholder e o unico texto da faixa que ainda alcanca o minimo */
+  border-color:rgba(0,0,0,.36)}
+/* cinza escuro sobre branco: 7,0:1 -- passa e ainda le mais leve que o
+   texto digitado */
 #faca-parte .campo input::placeholder,
-#faca-parte .campo textarea::placeholder{color:#fff;opacity:1}
+#faca-parte .campo textarea::placeholder{color:#595959;opacity:1}
 #faca-parte .campo input:focus,#faca-parte .campo textarea:focus{
-  outline-color:#fff}
+  outline-color:#111}
 #faca-parte .redes-campo{border-color:rgba(255,255,255,.28)}
 #faca-parte .marcador input{accent-color:#fff}
 /* texto do botao no azul da marca: a abobora sobre branco daria 2,65:1 */
@@ -216,8 +215,7 @@ p{margin:0 0 16px}
 #faca-parte .botao.vazio{border-color:rgba(255,255,255,.6);color:#fff}
 #faca-parte .botao.vazio:hover{background:#fff;color:#28307e;
   border-color:#fff}
-#faca-parte .recado{background:rgba(0,0,0,.3);border-left-color:#fff;
-  color:#fff}
+#faca-parte .recado{background:#fff;border-left-color:#28307e;color:#111}
 #faca-parte .erro{color:#ffd9d4}
 
 /* ---- formulario "Faca parte" ---- */
