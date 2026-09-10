@@ -240,13 +240,13 @@ dialog.ficha.fechando::backdrop{animation:ficha-fundo-sai .14s ease-in forwards}
 
   <section class="intro">
     <h1>O creator que você precisa está aqui</h1>
-    <p>Filtre por porte, nicho ou região. Clique no ícone da rede e vá direto
+    <p>Filtre por tamanho, nicho ou região. Clique no ícone da rede e vá direto
        para o perfil.</p>
   </section>
 
   <div class="abas" role="tablist">
     <button class="aba" role="tab" aria-selected="true"  data-dim="">Todos</button>
-    <button class="aba" role="tab" aria-selected="false" data-dim="porte">Porte</button>
+    <button class="aba" role="tab" aria-selected="false" data-dim="porte">Tamanho</button>
     <button class="aba" role="tab" aria-selected="false" data-dim="nicho">Nicho</button>
     <button class="aba" role="tab" aria-selected="false" data-dim="uf">Região</button>
   </div>
@@ -328,7 +328,9 @@ dialog.ficha.fechando::backdrop{animation:ficha-fundo-sai .14s ease-in forwards}
       c.hidden = !mostra;
       if (mostra) visiveis++;
     });
-    contador.innerHTML = '<b>' + visiveis + '</b> ' +
+    // o "+" na frente e a leitura da marca: o numero sai da contagem real
+    // dos cartoes na pagina, entao cadastrar um creator novo ja o atualiza
+    contador.innerHTML = '<b>+' + visiveis + '</b> ' +
       (visiveis === 1 ? 'creator' : 'creators');
     vazio.hidden = visiveis > 0;
   }

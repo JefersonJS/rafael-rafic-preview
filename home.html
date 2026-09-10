@@ -219,7 +219,11 @@ p{margin:0 0 16px}
 #faca-parte .botao.vazio{border-color:rgba(255,255,255,.6);color:#fff}
 #faca-parte .botao.vazio:hover{background:#fff;color:#28307e;
   border-color:#fff}
-#faca-parte .recado{background:#fff;border-left-color:#28307e;color:#111}
+/* fundo azul com texto branco: 11,57:1. O white-space guarda a quebra de
+   linha da mensagem, que chega como texto puro -- pelo PHP e pelo
+   textContent do script, onde marcacao nao seria interpretada. */
+#faca-parte .recado{background:#28307e;color:#fff;border-left-color:#fff;
+  white-space:pre-line;margin-bottom:26px;padding:18px 20px;line-height:1.5}
 #faca-parte .erro{color:#ffd9d4}
 
 /* ---- formulario "Faca parte" ---- */
@@ -243,14 +247,40 @@ p{margin:0 0 16px}
 .campo input[aria-invalid="true"]{border-color:#ff9a8b}
 .erro{font-size:12px;color:#ff9a8b;min-height:0}
 .formulario button{border:0;cursor:pointer;font:inherit;justify-self:start}
+/* Campo com o endereco da rede colado na frente: deixa obvio que a pessoa
+   digita so o @, sem colar o link inteiro. A borda pertence ao grupo, nao
+   ao input -- por isso o input entra sem borda e sem fundo. */
+/* min-width:0 e obrigatorio: o prefixo e nowrap, e sem isso a largura
+   minima do grupo era prefixo + campo, que "1fr" nao consegue encolher --
+   a grade estourava para 1052px dentro de um formulario de 760px. */
+.grupo{display:flex;align-items:stretch;background:#fff;min-width:0;
+  border:1px solid rgba(0,0,0,.2);border-radius:10px;overflow:hidden}
+/* text-transform e letter-spacing vem do rotulo, que e caixa alta: sem
+   zerar os dois o endereco aparecia como HTTPS://WWW.INSTAGRAM.COM/ e,
+   com 1.68px entre letras, ocupava 265px em vez de 175px. */
+.grupo .prefixo{display:flex;align-items:center;padding:0 2px 0 12px;
+  font-size:13px;color:#6b6b6b;white-space:nowrap;user-select:none;
+  text-transform:none;letter-spacing:0}
+.grupo input{border:0;background:none;border-radius:0;padding-left:2px;
+  min-width:0;flex:1}
+.grupo:focus-within{outline:2px solid #111;outline-offset:1px}
+/* No celular o "https://www." sozinho comia 100px dos 375 da tela e sobrava
+   quase nada para digitar. Ele desaparece abaixo de 560px; o endereco
+   continua legivel e o campo volta a caber. */
+.grupo .protocolo{display:none}
+@media(min-width:560px){.grupo .protocolo{display:inline}}
+#faca-parte .grupo input:focus{outline:none}
+#faca-parte .grupo input:hover{border-color:transparent}
+
 /* "Redes sociais" agrupa os tres links, como ele escreveu, com a opcao de
    nao possuir nenhuma */
 .redes-campo{border:1px solid rgba(255,255,255,.18);border-radius:10px;
   padding:16px;margin:0}
 .redes-campo legend{font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   color:#b9bce0;padding:0 6px}
+/* um por linha: com o endereco completo no prefixo, tres colunas
+   sobravam ~80px para o campo */
 .tres{display:grid;gap:14px}
-@media(min-width:760px){.tres{grid-template-columns:repeat(3,1fr)}}
 .sublabel{display:flex;flex-direction:column;gap:6px;font-size:13px;
   color:#b9bce0}
 .marcador{display:flex;align-items:center;gap:10px;margin-top:14px;
@@ -263,6 +293,8 @@ p{margin:0 0 16px}
 .recado{margin:0;font-size:14px;padding:14px 16px;border-radius:10px;
   background:rgba(255,255,255,.08);border-left:3px solid #e88648}
 .recado[hidden]{display:none}
+/* erro usa a mesma caixa, com a barra em outro tom */
+.recado-erro{border-left-color:#8c1d18}
 
 
 /* ---- perguntas frequentes ---- */
@@ -415,7 +447,7 @@ p{margin:0 0 16px}
           "name": "Que nichos o casting cobre?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Humor, beleza, moda, dicas, entretenimento, diversidade, família, negócios, casa e decoração, gastronomia, viagens e público adulto. A página do casting permite filtrar por nicho, porte e região."
+            "text": "Humor, beleza, moda, dicas, entretenimento, diversidade, família, negócios, casa e decoração, gastronomia, viagens e público adulto. A página do casting permite filtrar por nicho, tamanho e região."
           }
         },
         {
@@ -445,7 +477,7 @@ p{margin:0 0 16px}
       "publisher": {
         "@id": "https://rafaelrafic.com/#negocio"
       },
-      "dateModified": "2026-09-09"
+      "dateModified": "2026-09-10"
     },
     {
       "@type": "CollectionPage",
@@ -456,7 +488,7 @@ p{margin:0 0 16px}
       "isPartOf": {
         "@id": "https://rafaelrafic.com/#site"
       },
-      "dateModified": "2026-09-09"
+      "dateModified": "2026-09-10"
     }
   ]
 }</script>
@@ -596,14 +628,20 @@ p{margin:0 0 16px}
           <legend>Redes sociais</legend>
           <div class="tres">
             <label class="sublabel" for="f-instagram">Instagram
-              <input id="f-instagram" name="instagram" type="text"
-                     placeholder="instagram.com/seu-perfil"></label>
+              <span class="grupo">
+                <span class="prefixo"><span class="protocolo">https://www.</span>instagram.com/</span>
+                <input id="f-instagram" name="instagram" type="text"
+                       placeholder="add o @ aqui" autocomplete="off"></span></label>
             <label class="sublabel" for="f-tiktok">TikTok
-              <input id="f-tiktok" name="tiktok" type="text"
-                     placeholder="tiktok.com/@seu-perfil"></label>
+              <span class="grupo">
+                <span class="prefixo"><span class="protocolo">https://www.</span>tiktok.com/@</span>
+                <input id="f-tiktok" name="tiktok" type="text"
+                       placeholder="add o @ aqui" autocomplete="off"></span></label>
             <label class="sublabel" for="f-youtube">YouTube
-              <input id="f-youtube" name="youtube" type="text"
-                     placeholder="youtube.com/@seu-canal"></label>
+              <span class="grupo">
+                <span class="prefixo"><span class="protocolo">https://www.</span>youtube.com/@</span>
+                <input id="f-youtube" name="youtube" type="text"
+                       placeholder="add o @ aqui" autocomplete="off"></span></label>
           </div>
           <label class="marcador">
             <input type="checkbox" id="f-sem-redes" name="sem_redes">
@@ -652,7 +690,7 @@ p{margin:0 0 16px}
           <summary>Que nichos o casting cobre?</summary>
           <p>Humor, beleza, moda, dicas, entretenimento, diversidade, família,
              negócios, casa e decoração, gastronomia, viagens e público adulto.
-             A página do casting permite filtrar por nicho, porte e região.</p>
+             A página do casting permite filtrar por nicho, tamanho e região.</p>
         </details>
 
         <details>
